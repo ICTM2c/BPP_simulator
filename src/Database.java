@@ -23,8 +23,9 @@ public class Database {
         } try {
             PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId IS" + OrderId);
             ResultSet rs = stmt.executeQuery();
-
-
+            String res = rs.toString();
+            int resu = Integer.parseInt(res);
+            MysqlxCrud.Order result = new MysqlxCrud.Order(resu);
 
 
         } catch (Exception e) {
