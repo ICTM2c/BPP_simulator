@@ -27,7 +27,7 @@ public class Database {
     }
 
     public List<Order> fetchOrderOfCustomer(int customerID) {
-        List<Order> result = new ArrayList<Order>;
+        List<Order> result = new ArrayList<Order>();
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
