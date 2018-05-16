@@ -3,7 +3,7 @@ import java.util.List;
 public class Box {
 
     private List<Product> Products;
-    private int Capacity;
+    private int Capacity = 50;
 
     public Box() {
     }
