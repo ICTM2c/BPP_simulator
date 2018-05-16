@@ -3,15 +3,15 @@ import java.util.List;
 public class Order {
 
     private int OrderId;
-    private List<Box> Boxes;
+    private List<Product> products;
 
     public Order(int orderId) {
         OrderId = orderId;
     }
 
-    public Order(int orderId, List<Box> boxes) {
+    public Order(int orderId, List<Product> Products) {
         OrderId = orderId;
-        Boxes = boxes;
+        Products = products;
     }
 
     public Order() {
@@ -25,12 +25,12 @@ public class Order {
         OrderId = orderId;
     }
 
-    public List<Box> getBoxes() {
-        return Boxes;
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setBoxes(List<Box> boxes) {
-        Boxes = boxes;
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 
     public void CreateDeliveryNote() {
