@@ -1,5 +1,3 @@
-package TSPSimulator.Database;
-
 import com.mysql.cj.x.protobuf.MysqlxCrud;
 
 import javax.swing.*;
@@ -12,7 +10,7 @@ public class Database {
 
     private Connection connection;
 
-    public MysqlxCrud.Order fetchOrder(int OrderId) {
+    public Order fetchOrder(int OrderId) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
@@ -25,13 +23,11 @@ public class Database {
             ResultSet rs = stmt.executeQuery();
             String res = rs.toString();
             int resu = Integer.parseInt(res);
-            MysqlxCrud.Order result = new MysqlxCrud.Order(resu);
-
-
+            Order result = new Order(resu);
+            return result;
         } catch (Exception e) {
             return  null;
         }
-        return null;
     }
 
     public List<MysqlxCrud.Order> fetchOrderOfCustomer(int customerID) {
