@@ -1,9 +1,5 @@
-import com.mysql.cj.x.protobuf.MysqlxCrud;
-
-import javax.swing.*;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Database {
@@ -30,35 +26,30 @@ public class Database {
         }
     }
 
-    public List<MysqlxCrud.Order> fetchOrderOfCustomer(int customerID) {
-//        try {
-//            PreparedStatement stmt = conn.prepareStatement("SELECT p.*, s.* FROM Product p\n" +
-//                    "INNER JOIN product_order o ON p.productid = o.orderid\n" +
-//                    "INNER JOIN shelve s ON o.shelveid = s.ShelveId\n" +
-//                    "WHERE o.orderid = ?");
-//            stmt.setInt(1, order);
-//            ResultSet rs = stmt.executeQuery();
-//            List<TSPSimulator.Models.Product> res = new ArrayList<>();
-//            while (rs.next()) {
-//                res.add(TSPSimulator.Models.Product.FromResultSet(rs));
-//            }
-//            return res;
-//        }
-//        catch (Exception e) {
-//            return null;
-//        }
-        return null;
-    }
+    public List<Order> fetchOrderOfCustomer(int customerID) {
+        List<Order> result = new ArrayList<Order>;
 
-    private void Conn(String url, String username, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection connection = DriverManager.getConnection(url,username,password);
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } try {
+            PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM Order WHERE CustomerID IS " + customerID);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                String res = rs.toString();
+                int resu = Integer.parseInt(res);
+                Order resul = new Order();
+                result.add(resul);
+            }
+            return result;
+        } catch (Exception e) {
+            return null;
         }
-
+        return null;
     }
+
 }
