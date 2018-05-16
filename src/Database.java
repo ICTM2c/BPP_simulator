@@ -49,7 +49,6 @@ public class Database {
         } catch (Exception e) {
             return null;
         }
-        return null;
     }
 
 }
