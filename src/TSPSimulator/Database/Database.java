@@ -23,7 +23,7 @@ public class Database {
         } try {
             PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId IS" + OrderId);
             ResultSet rs = stmt.executeQuery();
-            
+            int jemoeder = 0;
 
 
 
