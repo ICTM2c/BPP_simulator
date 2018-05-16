@@ -8,6 +8,7 @@ public class BBPAlgorithmManager {
         for (BBPAlgorithm alg : Algorithms) {
             alg.simulate(capacity, products);
         }
+        return null;
     }
 
     public void writeResult() {

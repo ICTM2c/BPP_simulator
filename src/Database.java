@@ -6,7 +6,7 @@ public class Database {
 
     private Connection connection;
 
-    public Order fetchOrder(int OrderId) {
+    public Order fetchOrder(int OrderId) { //Beide moeten worden gereworked
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
@@ -15,7 +15,8 @@ public class Database {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId IS" + OrderId);
+            PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId = ?");
+            stmt.setInt(1,OrderId);
             ResultSet rs = stmt.executeQuery();
             String res = rs.toString();
             int resu = Integer.parseInt(res);
@@ -40,10 +41,11 @@ public class Database {
             PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM Order WHERE CustomerID IS " + customerID);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
-                String res = rs.toString();
+                String res = rs.getString(1);
                 int resu = Integer.parseInt(res);
-                Order resul = new Order();
-                result.add(resul);
+                String res2 = rs.getString(2);
+//                Order resul = new Order(resu,);
+//                result.add(resul);
             }
             return result;
         } catch (Exception e) {
