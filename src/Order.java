@@ -33,11 +33,11 @@ public class Order {
         this.products = products;
     }
 
-    public void addProduct (Product product) {
+    public void addProduct (Product product) { //Functie voor toevoegen van producten aan de product list
         products.add(product);
     }
 
     public void CreateDeliveryNote() {
-
+        //Moet nog worden gemaakt wanneer de rest werkt
     }
 }
