@@ -37,6 +37,11 @@ public class Order {
         products.add(product);
     }
 
+    public void print() {
+        System.out.println(OrderId);
+        System.out.println(products);
+    }
+
     public void CreateDeliveryNote() {
         //Moet nog worden gemaakt wanneer de rest werkt
     }

@@ -12,8 +12,10 @@ public class Database {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
         } catch (SQLException e) { //Als er geen connectie kan worden gemaakt met de database
             e.printStackTrace();
+            System.out.println("Connectie Error...");
         } catch (ClassNotFoundException e) { //Als class niet gevonden kan worden
             e.printStackTrace();
+            System.out.println("Class Error...");
         } try {
             PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId = ?"); //querry uitvoeren
             stmt.setInt(1,OrderId);
