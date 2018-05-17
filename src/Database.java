@@ -10,24 +10,24 @@ public class Database {
         try {
             Class.forName("com.mysql.jdbc.Driver"); //Connectie met database
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
-        } catch (SQLException e) {
+        } catch (SQLException e) { //Als er geen connectie kan worden gemaakt met de database
             e.printStackTrace();
         } catch (ClassNotFoundException e) { //Als class niet gevonden kan worden
             e.printStackTrace();
         } try {
             PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId = ?"); //querry uitvoeren
             stmt.setInt(1,OrderId);
-            ResultSet rs = stmt.executeQuery();
+            ResultSet rs = stmt.executeQuery(); //Uitvoeren querry
             int res = rs.getInt(1); //Haal order id uit querry
-            Order result = new Order(res);
-            return result;
+            Order result = new Order(res); //maak nieuwe order
+            return result;  //return result
         } catch (Exception e) {
             return  null;
         }
     }
 
-    public List<Order> fetchOrderOfCustomer(int customerID) { //BORKED
-        List<Order> result = new ArrayList<>();
+    public List<Order> fetchOrderOfCustomer(int customerID) { //BORKED = now worked
+        List<Order> result = new ArrayList<>(); // return array met orders
 
         try {
             Class.forName("com.mysql.jdbc.Driver"); //Connectie met database
@@ -38,8 +38,8 @@ public class Database {
             e.printStackTrace();
         } try {
             PreparedStatement stmt = connection.prepareStatement("SELECT O.`OrderId`,P.`ProductId` FROM `Order` AS O WHERE CustomerID = ? INNER JOIN `Product_Order` AS P ON `Order`.OrderId = `Product_Order`.OrderId");
-            ResultSet rs = stmt.executeQuery();
-            stmt.setInt(1,customerID);
+            ResultSet rs = stmt.executeQuery(); //Uitvoeren querry
+            stmt.setInt(1,customerID); //zet ? om in customerID wat meegegeven wordt
             while (rs.next()) {
                 int res = rs.getInt(1); //OrderID ophalen uit querry
                 int res2 = rs.getInt(2); //ProductID ophalen uit querry
