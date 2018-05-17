@@ -3,9 +3,14 @@ package com.company;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener{
    //tekstvelden
+
+    private Box Box1;
+    private Box Box2;
     private JLabel titleTekst;
     private JLabel selecterenAlgoritmeTekst;
     private JLabel productenTekst;
@@ -14,10 +19,13 @@ public class GUI extends JFrame implements ActionListener{
     private JLabel invoerenOrderTekst;
     private JLabel doosCapaciteitTekst;
     private JLabel productGrootteTekst;
+    private JNumberTextField CapacityProduct;
 
     private JDialog b;
     private JFileChooser fc;
-    private JSpinner d;
+    private JSpinner CapacityBox;
+
+    private ArrayList<Product> productList = new ArrayList<Product>();
 
 
     // panels
@@ -31,6 +39,7 @@ public class GUI extends JFrame implements ActionListener{
     private JButton bestandButton;
     private JButton ToevoegenButton;
     private JButton SimuleerButton;
+    private JButton CapaciteitOkButton;
 
 
     private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Next Fit", "Best Fit"};
@@ -41,33 +50,35 @@ public class GUI extends JFrame implements ActionListener{
 
 
 public GUI() {
+    Box1 = new Box();
+    Box2 = new Box();
     setTitle("BPP simulator");
     setSize(1050, 500);
     setLayout(new FlowLayout());
 
-    SpinnerModel spinnerModel = new SpinnerNumberModel(50,10,100,1);
-    JSpinner d = new JSpinner(spinnerModel);
+    int maxdoos = Box1.getCapacity();
+    System.out.println(maxdoos);
 
 
+    SpinnerModel spinnerModel1 = new SpinnerNumberModel(50,10,100,1);
 
+    CapacityBox = new JSpinner(spinnerModel1);
+    CapacityProduct = new JNumberTextField();
 
-    JFileChooser fc = new JFileChooser();
-
-    fc.setCurrentDirectory(new java.io.File("."));
-    fc.getFileFilter();
 
 
 
 
     AlgoritmeLijst = new JComboBox(Algoritme);
 
+
     JPanel Panel1 = new JPanel();
     JPanel Panel2 = new JPanel();
     JPanel Panel3 = new JPanel();
     Panel4 = new TekenPanel();
 
-    Panel2.setLayout(new GridLayout(7, 1));
-    Panel3.setLayout(new GridLayout(5, 1));
+    Panel2.setLayout(new GridLayout(8, 1));
+    Panel3.setLayout(new GridLayout(6, 1));
 
     Panel1.setPreferredSize(new Dimension(1000, 100));
     Panel2.setPreferredSize(new Dimension(300, 350));
@@ -82,9 +93,12 @@ public GUI() {
 
     Panel4.setBackground(Color.white);
 
+
+    // alle knoppen
     bestandButton = new JButton("Bestand");
     ToevoegenButton = new JButton("Toevoegen");
     SimuleerButton = new JButton("Simuleer");
+    CapaciteitOkButton = new JButton("OK");
 
     // alle JLabels
     titleTekst = new JLabel("BPP - Simulator");
@@ -106,11 +120,12 @@ public GUI() {
 
 
 
-
+    CapacityProduct.setSize(20, 5);
 
     bestandButton.addActionListener(this);
     ToevoegenButton.addActionListener(this);
     SimuleerButton.addActionListener(this);
+    CapaciteitOkButton.addActionListener(this);
 
 
     add(Panel1);
@@ -125,7 +140,8 @@ public GUI() {
     Panel2.add(AlgoritmeLijst);
     Panel2.add(doosTekst);
     Panel2.add(doosCapaciteitTekst);
-    Panel2.add(d);
+    Panel2.add(CapacityBox);
+    Panel2.add(CapaciteitOkButton);
     Panel2.add(invoerenOrderTekst);
     Panel2.add(bestandButton);
 
@@ -133,6 +149,7 @@ public GUI() {
     Panel3.add(productenTekst);
     Panel3.add(voegProductToeTekst);
     Panel3.add(productGrootteTekst);
+    Panel3.add(CapacityProduct);
     Panel3.add(ToevoegenButton);
     Panel3.add(SimuleerButton);
 
@@ -146,18 +163,42 @@ public GUI() {
 
 
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == bestandButton){
-            System.out.println("Bestand knop doet het");
-                if(fc.showOpenDialog(bestandButton) == JFileChooser.APPROVE_OPTION){
-        //
-    }
+    public void actionPerformed(ActionEvent e) {//invoer groote doos
+        if(e.getSource() == CapaciteitOkButton){
+            int value =  Integer.parseInt(CapacityBox.getValue().toString());
 
-    System.out.println(fc.getSelectedFile().getAbsolutePath());
+            Box1.setCapacity(value);
+            Box2.setCapacity(value);
+            System.out.println(Box1.getCapacity());
+
+
+
+        }
+        else if(e.getSource() == bestandButton) {
+            final JFileChooser fc = new JFileChooser(); // een filefinder voor de JSON product
+            fc.setCurrentDirectory(new java.io.File("."));
+            int returnVal = fc.showOpenDialog(this);
+            //fc.getFileFilter();
+
+
+            if (returnVal != JFileChooser.APPROVE_OPTION) {
+                return;
+            }
+            File f = fc.getSelectedFile();
 
         }else if(e.getSource() == ToevoegenButton){
-            System.out.println("Toevoeg knop doet het");
-            product p = new product(1, 20);
+
+            if(CapacityProduct.getNumber() <= Box1.getCapacity()) { // product grootte vergelijken met doos grootte
+                Product product = new Product(CapacityProduct.getNumber());
+            productList.add(product);
+                System.out.println(productList.size());
+            } else{
+                System.out.println("TERING GROTE PRODUCT JONGE"); // message als product te groot is
+
+            }
+
+
+
 
         }else if(e.getSource() == SimuleerButton){
             System.out.println("Simuleer knop doet het");

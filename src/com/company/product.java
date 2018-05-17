@@ -1,29 +1,39 @@
 package com.company;
+public class Product {
 
-public class product {
-    private int productId;
-    private int productGrootte;
+    private int ProductId;
+    private String Name;
+    private int Size;
 
-
-    public product(int productId, int productGrootte){
-        this.productId = productId;
-        this.productGrootte = productGrootte;
+    public Product(int size) {
+        Size = size;
     }
 
-    public void setProductGrootte(int productGrootte) {
-        this.productGrootte = productGrootte;
+    public Product() {
     }
-
 
     public int getProductId() {
-        return productId;
+        return ProductId;
     }
 
-    public int getProductGrootte() {
-        return productGrootte;
+    public void setProductId(int productId) {
+        ProductId = productId;
     }
-    public String toString(){
-        return "Product " + getProductId() + " heeft een grootte van " + getProductGrootte();
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public int getSize() {
+        return Size;
+    }
+
+    public void setSize(int size) {
+        Size = size;
     }
 
 }
