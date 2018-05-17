@@ -37,9 +37,8 @@ public class Order {
         products.add(product);
     }
 
-    public void print() {
+    public void printOrderId() {  //Test om orderID uitteprinten
         System.out.println(OrderId);
-        System.out.println(products);
     }
 
     public void CreateDeliveryNote() {
