@@ -42,6 +42,8 @@ public class GUI extends JFrame implements ActionListener{
     private JButton CapaciteitOkButton;
 
 
+
+    private JOptionPane bigProduct;
     private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Next Fit", "Best Fit"};
     private JComboBox AlgoritmeLijst;
 
@@ -68,7 +70,7 @@ public GUI() {
 
 
 
-
+    bigProduct = new JOptionPane();
     AlgoritmeLijst = new JComboBox(Algoritme);
 
 
@@ -188,20 +190,32 @@ public GUI() {
 
         }else if(e.getSource() == ToevoegenButton){
 
-            if(CapacityProduct.getNumber() <= Box1.getCapacity()) { // product grootte vergelijken met doos grootte
+            if(CapacityProduct.getNumber() <= Box1.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
             productList.add(product);
                 System.out.println(productList.size());
-            } else{
-                System.out.println("TERING GROTE PRODUCT JONGE"); // message als product te groot is
+            } else if(CapacityProduct.getNumber() > Box1.getCapacity()){
+                bigProduct.showMessageDialog(ToevoegenButton, "Product te groot");
 
+            } else if (CapacityProduct.getNumber() < 1){
+                bigProduct.showMessageDialog(ToevoegenButton, "Product te klein");
             }
 
 
 
 
         }else if(e.getSource() == SimuleerButton){
-            System.out.println("Simuleer knop doet het");
+            String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
+
+            if(selectedAlgorithm == "First Fit"){
+                System.out.println("FirstFit");                     // hier komt First Fit algoritme
+            }else if(selectedAlgorithm == "First Fit Decreasing"){
+                System.out.println("First Fit Decreasing");         // hier komt First Fit decreasing algoritme
+            } else if(selectedAlgorithm == "Next Fit"){
+                System.out.println("Next Fit");                     // hier komt Next Fit algoritme
+            } else if(selectedAlgorithm == "Best Fit"){
+                System.out.println("Best Fit");                     // hier komt Best Fit algoritme
+            }
         }
         repaint();
     }
