@@ -33,6 +33,10 @@ public class Order {
         this.products = products;
     }
 
+    public void addProduct (Product product) {
+        products.add(product);
+    }
+
     public void CreateDeliveryNote() {
 
     }
