@@ -42,10 +42,8 @@ public class Database {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 String res = rs.getString(1);
-                int resu = Integer.parseInt(res);
-                String res2 = rs.getString(2);
-//                Order resul = new Order(resu,);
-//                result.add(resul);
+
+//
             }
             return result;
         } catch (Exception e) {
