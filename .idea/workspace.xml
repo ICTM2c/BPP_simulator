@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="65930d59-9dc9-4b93-8b6e-8fd514688d75" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/Database.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -377,7 +376,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526551866981</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Initial commit">
+      <created>1526554538200</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1526554538200</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
