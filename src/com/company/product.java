@@ -1,5 +1,5 @@
 package com.company;
-public class Product {
+class Product {
 
     private int ProductId;
     private String Name;
