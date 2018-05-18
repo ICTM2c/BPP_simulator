@@ -5,20 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f410744-cd38-4020-8ca9-21e88883081f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_46.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/BPP simulator.iml" afterPath="$PROJECT_DIR$/BPP simulator.iml" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BBPAlgorithmManager.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BBPAlgorithmManager.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BestFit.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BestFit.class" />
       <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BestPickFit.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/BestPickFit.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFit.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFit.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFitDecreasing.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFitDecreasing.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/GUI.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/GUI.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/JNumberTextField.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/JNumberTextField.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Order.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Order.class" />
       <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Product.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Product.class" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/product.java" afterPath="$PROJECT_DIR$/src/com/company/product.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/TekenPanel.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/TekenPanel.class" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TekenPanel.java" afterPath="$PROJECT_DIR$/src/com/company/TekenPanel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,8 +34,8 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="258">
+              <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -74,13 +65,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TekenPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TekenPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/TekenPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state relative-caret-position="399">
+              <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1723#1724#0" expanded="true" />
+                <element signature="e#1764#1765#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,7 +89,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="product.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/product.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -169,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/com/company/Doos.java" />
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
         <option value="$PROJECT_DIR$/src/com/company/JNumberTextField.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI.java" />
         <option value="$PROJECT_DIR$/src/com/company/BBPAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/com/company/BBPAlgorithmManager.java" />
         <option value="$PROJECT_DIR$/src/com/company/BestFit.java" />
@@ -181,8 +173,9 @@
         <option value="$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java" />
         <option value="$PROJECT_DIR$/src/com/company/Order.java" />
         <option value="$PROJECT_DIR$/src/com/company/Product.java" />
-        <option value="$PROJECT_DIR$/src/com/company/TekenPanel.java" />
         <option value="$PROJECT_DIR$/src/com/company/product.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI.java" />
+        <option value="$PROJECT_DIR$/src/com/company/TekenPanel.java" />
       </list>
     </option>
   </component>
@@ -342,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1526628565166</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/com/company/product.java">
+      <created>1526632936251</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1526632936251</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dozen paint deel">
+      <created>1526637013700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1526637013700</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -358,7 +365,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16365568" sideWeight="0.50104165" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16353591" sideWeight="0.49895832" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943678" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928178" sideWeight="0.49947917" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32943678" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -385,7 +392,9 @@
     <MESSAGE value="niks" />
     <MESSAGE value="GUI toegevoegd" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/com/company/product.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/com/company/product.java" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/ictm2c/BPP_Simulator&#10;&#10;# Conflicts:&#10;#&#9;out/production/BPP simulator/com/company/BestPickFit.class&#10;#&#9;out/production/BPP simulator/com/company/Product.class" />
+    <MESSAGE value="Dozen paint deel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dozen paint deel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -400,6 +409,8 @@
           <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -456,6 +467,8 @@
           <caret line="26" column="37" lean-forward="false" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -508,6 +521,8 @@
           <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,29 +671,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -711,10 +708,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Database.java" />
-    <entry file="file://$PROJECT_DIR$/src/com/company/TekenPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="38" lean-forward="false" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+        <state relative-caret-position="258">
+          <caret line="202" column="0" lean-forward="false" selection-start-line="202" selection-start-column="0" selection-end-line="202" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -726,6 +723,26 @@
         <state relative-caret-position="210">
           <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/TekenPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1723#1724#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
