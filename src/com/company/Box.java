@@ -1,16 +1,25 @@
 package com.company;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Box {
 
     private List<Product> Products;
-    private int Capacity = 50;
+    private static int Capacity = 50;
+    private int CapacityLeftOver;
 
     public Box() {
+        Products = new ArrayList<Product>();
+        CapacityLeftOver = Capacity;
+    }
+
+    public static void setCapacity(int capacity) {
+        Capacity = capacity;
     }
 
     public Box(int capacity) {
-        Capacity = capacity;
+//        Capacity = capacity;
+        this();
     }
 
     public int totalUsed() {
@@ -21,8 +30,13 @@ public class Box {
         return counter;
     }
 
-    public void addProduct(Product product) { //Voegt een enkel product toe aan list
-        Products.add(product);
+    public boolean addProduct(Product product) { //Voegt een enkel product toe aan list
+        if (CapacityLeftOver >= product.getSize()) {
+            Products.add(product);
+            CapacityLeftOver -= product.getSize();
+            return true;
+        }
+        return false;
     }
 
     public List<Product> getProducts() {
@@ -33,11 +47,15 @@ public class Box {
         Products = products;
     }
 
-    public int getCapacity() {
+    public static int getCapacity() {
         return Capacity;
     }
 
-    public void setCapacity(int capacity) {
-        Capacity = capacity;
+    public int getCapacityLeftOver() {
+        return CapacityLeftOver;
     }
+
+//    public void setCapacity(int capacity) {
+//        Capacity = capacity;
+//    }
 }

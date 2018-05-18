@@ -13,8 +13,8 @@ class Product {
     public Product() {
     }
 
-    public Product(int productId) {
-        ProductId = productId;
+    public Product(int capacity) {
+        Size = capacity;
     }
 
     public int getProductId() {

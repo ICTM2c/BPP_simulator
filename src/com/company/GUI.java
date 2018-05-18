@@ -5,11 +5,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener{
 
-    private Box Box1;   // doos aanmaken
-    private Box Box2;   // doos aanmaken
+    int value;
+//    private Box Box1 = new Box();   // doos aanmaken
 
     //tekstvelden
     private JLabel titleTekst;  //tite;
@@ -23,11 +24,9 @@ public class GUI extends JFrame implements ActionListener{
 
     private JNumberTextField CapacityProduct;
 
-
     private JSpinner CapacityBox;
 
     private ArrayList<Product> productList = new ArrayList<Product>();
-
 
     // panels
     private JPanel Panel1;
@@ -41,38 +40,26 @@ public class GUI extends JFrame implements ActionListener{
     private JButton SimuleerButton;
     private JButton CapaciteitOkButton;
 
-
-
     private JOptionPane bigProduct;
     private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Next Fit", "Best Fit"};
     private JComboBox AlgoritmeLijst;
 
-
     private JLabel[] tekst = {selecterenAlgoritmeTekst, productenTekst, doosTekst, voegProductToeTekst, invoerenOrderTekst};
 
     public GUI() {
-    Box1 = new Box();
-    Box2 = new Box();
+//    Box Box1 = new Box();
     setTitle("BPP simulator");
-    setSize(1050, 500);
+    setSize(1050, 750);
     setLayout(new FlowLayout());
     setResizable(false);
 
-    int maxdoos = Box1.getCapacity();
-    System.out.println(maxdoos);
-
-
-    SpinnerModel spinnerModel1 = new SpinnerNumberModel(50,10,100,1);
+    SpinnerModel spinnerModel1 = new SpinnerNumberModel(0,0,100,1);
 
     CapacityBox = new JSpinner(spinnerModel1);
     CapacityProduct = new JNumberTextField();
 
-
-
-
     bigProduct = new JOptionPane();
     AlgoritmeLijst = new JComboBox(Algoritme);
-
 
     Panel1 = new JPanel();
     Panel2 = new JPanel();
@@ -85,16 +72,9 @@ public class GUI extends JFrame implements ActionListener{
     Panel1.setPreferredSize(new Dimension(1000, 100));
     Panel2.setPreferredSize(new Dimension(300, 350));
     Panel3.setPreferredSize(new Dimension(300, 350));
-    DrawPanel.setPreferredSize(new Dimension(400, 350));
-
-
-   /* Panel1.setBackground(Color.red);
-    Panel2.setBackground(Color.green);
-    Panel3.setBackground(Color.blue);
-*/
+    DrawPanel.setPreferredSize(new Dimension(400, 600));
 
     DrawPanel.setBackground(Color.white);
-
 
     // alle knoppen
     bestandButton = new JButton("Bestand");
@@ -112,15 +92,12 @@ public class GUI extends JFrame implements ActionListener{
     productGrootteTekst = new JLabel("product grootte:");
     doosCapaciteitTekst = new JLabel("Doos Capaciteit:");
 
-
     titleTekst.setFont(new Font("Serif", Font.PLAIN, 30));
     selecterenAlgoritmeTekst.setFont(new Font("Serif", Font.PLAIN, 20));
     productenTekst.setFont(new Font("Serif", Font.PLAIN, 20));
     doosTekst.setFont(new Font("Serif", Font.PLAIN, 20));
     voegProductToeTekst.setFont(new Font("Serif", Font.PLAIN, 20));
     invoerenOrderTekst.setFont(new Font("Serif", Font.PLAIN, 20));
-
-
 
     CapacityProduct.setSize(20, 5);
 
@@ -129,14 +106,12 @@ public class GUI extends JFrame implements ActionListener{
     SimuleerButton.addActionListener(this);
     CapaciteitOkButton.addActionListener(this);
 
-
     add(Panel1);
     add(Panel2);
     add(Panel3);
     add(DrawPanel);
 
     Panel1.add(titleTekst);
-
 
     Panel2.add(selecterenAlgoritmeTekst);
     Panel2.add(AlgoritmeLijst);
@@ -155,25 +130,19 @@ public class GUI extends JFrame implements ActionListener{
     Panel3.add(ToevoegenButton);
     Panel3.add(SimuleerButton);
 
-
-
-
-
-
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
 }
 
+    public int getValue() {
+        return value;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == CapaciteitOkButton){                        // knop om invoer product te bevestigen
-            int value =  Integer.parseInt(CapacityBox.getValue().toString());
-
-            Box1.setCapacity(value);
-            Box2.setCapacity(value);
-            System.out.println(Box1.getCapacity());
-            DrawPanel.setCapacity(value);
+            value =  Integer.parseInt(CapacityBox.getValue().toString()); //Ingevoerde waarde
+            Box.setCapacity(value);
             DrawPanel.repaint();
 
         }
@@ -188,11 +157,11 @@ public class GUI extends JFrame implements ActionListener{
         }else if(e.getSource() == ToevoegenButton){                     // knop om producten toe te voegen
 
             DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
-            if(CapacityProduct.getNumber() <= Box1.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
+            if(CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
-            productList.add(product);
+                productList.add(product);
                 System.out.println(productList.size());
-            } else if(CapacityProduct.getNumber() > Box1.getCapacity()){
+            } else if(CapacityProduct.getNumber() > Box.getCapacity()){
                 bigProduct.showMessageDialog(ToevoegenButton, "Product te groot");
 
             } else if (CapacityProduct.getNumber() < 1){
@@ -202,7 +171,10 @@ public class GUI extends JFrame implements ActionListener{
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
 
             if(selectedAlgorithm == "First Fit"){
-                System.out.println("FirstFit");                     // hier komt First Fit algoritme
+                FirstFit firstFit = new FirstFit();
+                List<Box> BoxList = firstFit.simulate(value,productList); //Runt Firstfit algoritme
+                DrawPanel.setBoxes(BoxList);
+                DrawPanel.repaint();
             }else if(selectedAlgorithm == "First Fit Decreasing"){
                 System.out.println("First Fit Decreasing");         // hier komt First Fit decreasing algoritme
             } else if(selectedAlgorithm == "Next Fit"){
@@ -213,5 +185,5 @@ public class GUI extends JFrame implements ActionListener{
         }
         repaint();
     }
-    }
+}
 

@@ -1,6 +1,6 @@
 package com.company;
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
 public class FirstFit implements BBPAlgorithm {
 
@@ -10,15 +10,20 @@ public class FirstFit implements BBPAlgorithm {
         Box box1 = new Box(capacity); //De begin doos
         ListBox.add(box1);
 
-        for (int i = 0; i <= products.size() ; i++) {
-            for (int j = 0; j <= ListBox.size() ; j++) {
-                if (ListBox.get(j).getCapacity() >= products.get(i).getSize()) { //Als de (overgebleven) groote van de doos groter is als de groote van het product
-                    ListBox.get(j).addProduct(products.get(i)); //Voegt prodoct toe aan de doos
-                } if (ListBox.get(j).getCapacity() < products.get(i).getSize()) { //Als de (overgebleven) groote van de doos kleiner is als de groote van het product
-                    Box box2 = new Box(capacity); //Maakt nieuwe doos
-                    box2.addProduct(products.get(i)); //Voegt Product toe aan box
-                    ListBox.add(box2); //Voegt box toe aan list
+        for (Product product : products) {
+            boolean didAdd = false;
+            for (int j = 0; j < ListBox.size() ; j++) {
+                Box box = ListBox.get(j);
+                if (box.addProduct(product)) {
+                    didAdd = true;
+                    break;
                 }
+            }
+
+            if (!didAdd) {
+                Box newBox = new Box(); //Maakt nieuwe doos met capacity en haal er de size van het het product vanaf
+                newBox.addProduct(product); //Voegt Product toe aan box
+                ListBox.add(newBox); //Voegt box toe aan list
             }
         }
         return ListBox;
