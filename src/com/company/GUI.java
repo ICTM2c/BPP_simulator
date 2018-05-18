@@ -67,7 +67,7 @@ public class GUI extends JFrame implements ActionListener{
     DrawPanel = new TekenPanel();
 
     Panel2.setLayout(new GridLayout(8, 1));
-    Panel3.setLayout(new GridLayout(6, 1));
+    Panel3.setLayout(new GridLayout(6 + productList.size(), 1));
 
     Panel1.setPreferredSize(new Dimension(1000, 100));
     Panel2.setPreferredSize(new Dimension(300, 350));
@@ -155,11 +155,11 @@ public class GUI extends JFrame implements ActionListener{
             }
             File f = fc.getSelectedFile();
         }else if(e.getSource() == ToevoegenButton){                     // knop om producten toe te voegen
-
             DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
             if(CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
                 productList.add(product);
+                TekenProductenlijst();
                 System.out.println(productList.size());
             } else if(CapacityProduct.getNumber() > Box.getCapacity()){
                 bigProduct.showMessageDialog(ToevoegenButton, "Product te groot");
@@ -183,6 +183,23 @@ public class GUI extends JFrame implements ActionListener{
                 System.out.println("Best Fit");                     // hier komt Best Fit algoritme
             }
         }
+        repaint();
+    }
+
+    public void TekenProductenlijst() {
+
+
+
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override
+//
+//            public void run() {
+//                 Panel3.add(new JLabel("Product-" + (i + 1) + ": " + productList.get(i).getSize())); //Broken PLZ FIX MICROSOFT
+//                 Panel3.validate();
+//                 Panel3.repaint();
+//
+//            }
+//        });
         repaint();
     }
 }
