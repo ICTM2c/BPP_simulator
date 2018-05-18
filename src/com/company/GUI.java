@@ -7,10 +7,11 @@ import java.io.File;
 import java.util.ArrayList;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener{
-   //tekstvelden
 
     private Box Box1;
     private Box Box2;
+
+    //tekstvelden
     private JLabel titleTekst;
     private JLabel selecterenAlgoritmeTekst;
     private JLabel productenTekst;
@@ -19,7 +20,9 @@ public class GUI extends JFrame implements ActionListener{
     private JLabel invoerenOrderTekst;
     private JLabel doosCapaciteitTekst;
     private JLabel productGrootteTekst;
+
     private JNumberTextField CapacityProduct;
+
 
     private JDialog b;
     private JFileChooser fc;
@@ -32,8 +35,7 @@ public class GUI extends JFrame implements ActionListener{
     private JPanel Panel1;
     private JPanel Panel2;
     private JPanel Panel3;
-    private TekenPanel Panel4;
-
+    private TekenPanel DrawPanel;
 
     //knoppen
     private JButton bestandButton;
@@ -50,13 +52,13 @@ public class GUI extends JFrame implements ActionListener{
 
     private JLabel[] tekst = {selecterenAlgoritmeTekst, productenTekst, doosTekst, voegProductToeTekst, invoerenOrderTekst};
 
-
-public GUI() {
+    public GUI() {
     Box1 = new Box();
     Box2 = new Box();
     setTitle("BPP simulator");
     setSize(1050, 500);
     setLayout(new FlowLayout());
+    setResizable(false);
 
     int maxdoos = Box1.getCapacity();
     System.out.println(maxdoos);
@@ -77,7 +79,7 @@ public GUI() {
     JPanel Panel1 = new JPanel();
     JPanel Panel2 = new JPanel();
     JPanel Panel3 = new JPanel();
-    Panel4 = new TekenPanel();
+    DrawPanel = new TekenPanel();
 
     Panel2.setLayout(new GridLayout(8, 1));
     Panel3.setLayout(new GridLayout(6, 1));
@@ -85,7 +87,7 @@ public GUI() {
     Panel1.setPreferredSize(new Dimension(1000, 100));
     Panel2.setPreferredSize(new Dimension(300, 350));
     Panel3.setPreferredSize(new Dimension(300, 350));
-    Panel4.setPreferredSize(new Dimension(400, 350));
+    DrawPanel.setPreferredSize(new Dimension(400, 350));
 
 
    /* Panel1.setBackground(Color.red);
@@ -93,7 +95,7 @@ public GUI() {
     Panel3.setBackground(Color.blue);
 */
 
-    Panel4.setBackground(Color.white);
+    DrawPanel.setBackground(Color.white);
 
 
     // alle knoppen
@@ -133,7 +135,7 @@ public GUI() {
     add(Panel1);
     add(Panel2);
     add(Panel3);
-    add(Panel4);
+    add(DrawPanel);
 
     Panel1.add(titleTekst);
 
@@ -147,7 +149,7 @@ public GUI() {
     Panel2.add(invoerenOrderTekst);
     Panel2.add(bestandButton);
 
-
+//panel 3 components
     Panel3.add(productenTekst);
     Panel3.add(voegProductToeTekst);
     Panel3.add(productGrootteTekst);
@@ -159,36 +161,33 @@ public GUI() {
 
 
 
+
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setVisible(true);
 }
 
 
     @Override
-    public void actionPerformed(ActionEvent e) {//invoer groote doos
-        if(e.getSource() == CapaciteitOkButton){
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == CapaciteitOkButton){                        // knop om invoer product te bevestigen
             int value =  Integer.parseInt(CapacityBox.getValue().toString());
 
             Box1.setCapacity(value);
             Box2.setCapacity(value);
             System.out.println(Box1.getCapacity());
-
-
+            DrawPanel.setCapacity(value);
+            DrawPanel.repaint();
 
         }
-        else if(e.getSource() == bestandButton) {
-            final JFileChooser fc = new JFileChooser(); // een filefinder voor de JSON product
+        else if(e.getSource() == bestandButton) {                       // knop om bestanden te uploaden
+            final JFileChooser fc = new JFileChooser();                 // een filefinder voor de JSON product
             fc.setCurrentDirectory(new java.io.File("."));
             int returnVal = fc.showOpenDialog(this);
-            //fc.getFileFilter();
-
-
             if (returnVal != JFileChooser.APPROVE_OPTION) {
                 return;
             }
             File f = fc.getSelectedFile();
-
-        }else if(e.getSource() == ToevoegenButton){
+        }else if(e.getSource() == ToevoegenButton){                     // knop om producten toe te voegen
 
             if(CapacityProduct.getNumber() <= Box1.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
@@ -200,10 +199,6 @@ public GUI() {
             } else if (CapacityProduct.getNumber() < 1){
                 bigProduct.showMessageDialog(ToevoegenButton, "Product te klein");
             }
-
-
-
-
         }else if(e.getSource() == SimuleerButton){
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
 
