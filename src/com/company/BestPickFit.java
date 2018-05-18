@@ -18,8 +18,6 @@ public class BestPickFit implements BBPAlgorithm {
         ListBoxBestFit = BestFitAlgorithm.simulate(capacity, products); //voer BestFitAlgorithm uit en zet de resultaten in ListBoxBestFit
         FirstFitDecreasing FirstFitDecreasingAlgorithm = new FirstFitDecreasing(); //maak nieuwe FirstFitDecreasingAlgorithm aan
         FirstFitDecreasingAlgorithm.simulate(capacity, products); //voer FirstFitDecreasingAlgorithm uit en zet de resultaten in ListBoxFirstFitDecreasing
-
-
         if (ListBoxFirstFit.size() <= ListBoxBestFit.size()) { //vergelijkt FirstFit met BestFit
             if (ListBoxFirstFit.size() <= ListBoxFirstFitDecreasing.size()) { //vergelijkt FirstFit met FirstFitDecreasing
                 return ListBoxFirstFit; //return

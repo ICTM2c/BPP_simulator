@@ -10,7 +10,7 @@ public class Box {
     }
 
     public Box(int capacity) {
-        this.Capacity = capacity;
+        Capacity = capacity;
     }
 
     public int totalUsed() {

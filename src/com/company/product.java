@@ -5,11 +5,16 @@ public class Product {
     private String Name;
     private int Size;
 
-    public Product(int size) {
+    public Product(int productId, int size) {
+        ProductId = productId;
         Size = size;
     }
 
     public Product() {
+    }
+
+    public Product(int productId) {
+        ProductId = productId;
     }
 
     public int getProductId() {
@@ -35,5 +40,4 @@ public class Product {
     public void setSize(int size) {
         Size = size;
     }
-
 }

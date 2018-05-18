@@ -8,24 +8,22 @@ import java.util.ArrayList;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener{
 
-    private Box Box1;
-    private Box Box2;
+    private Box Box1;   // doos aanmaken
+    private Box Box2;   // doos aanmaken
 
     //tekstvelden
-    private JLabel titleTekst;
-    private JLabel selecterenAlgoritmeTekst;
-    private JLabel productenTekst;
-    private JLabel doosTekst;
-    private JLabel voegProductToeTekst;
-    private JLabel invoerenOrderTekst;
-    private JLabel doosCapaciteitTekst;
-    private JLabel productGrootteTekst;
+    private JLabel titleTekst;  //tite;
+    private JLabel selecterenAlgoritmeTekst; // Algoritme Selecteren tekst
+    private JLabel productenTekst;           // Producten tekst
+    private JLabel doosTekst;               // Doos tekst
+    private JLabel voegProductToeTekst;     //voeg Product toe tekst
+    private JLabel invoerenOrderTekst;      // Order invoeren tekst
+    private JLabel doosCapaciteitTekst;     // Doos capaciteit tekst
+    private JLabel productGrootteTekst;     // Grootte product tekst
 
     private JNumberTextField CapacityProduct;
 
 
-    private JDialog b;
-    private JFileChooser fc;
     private JSpinner CapacityBox;
 
     private ArrayList<Product> productList = new ArrayList<Product>();
@@ -76,9 +74,9 @@ public class GUI extends JFrame implements ActionListener{
     AlgoritmeLijst = new JComboBox(Algoritme);
 
 
-    JPanel Panel1 = new JPanel();
-    JPanel Panel2 = new JPanel();
-    JPanel Panel3 = new JPanel();
+    Panel1 = new JPanel();
+    Panel2 = new JPanel();
+    Panel3 = new JPanel();
     DrawPanel = new TekenPanel();
 
     Panel2.setLayout(new GridLayout(8, 1));
@@ -189,6 +187,7 @@ public class GUI extends JFrame implements ActionListener{
             File f = fc.getSelectedFile();
         }else if(e.getSource() == ToevoegenButton){                     // knop om producten toe te voegen
 
+            DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
             if(CapacityProduct.getNumber() <= Box1.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
             productList.add(product);
