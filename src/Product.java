@@ -4,6 +4,11 @@ public class Product {
     private String Name;
     private int Size;
 
+    public Product(int productId, int size) {
+        ProductId = productId;
+        Size = size;
+    }
+
     public Product() {
     }
 

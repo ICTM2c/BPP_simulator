@@ -7,6 +7,8 @@ public class Database {
     private Connection connection;
 
     public Order fetchOrder(int OrderId) {
+        Order result = new Order(OrderId);
+
         try {
             Class.forName("com.mysql.jdbc.Driver"); //Connectie met database
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/magazijnrobot","root","");
@@ -17,13 +19,18 @@ public class Database {
             e.printStackTrace();
             System.out.println("Class Error...");
         } try {
-            PreparedStatement stmt = connection.prepareStatement("SELECT `OrderId` FROM ORDER WHERE OrderId = ?"); //querry uitvoeren
-            stmt.setInt(1,OrderId);
-            ResultSet rs = stmt.executeQuery(); //Uitvoeren querry
-            int res = rs.getInt(1); //Haal order id uit querry
-            Order result = new Order(res); //maak nieuwe order
+            PreparedStatement stmt = connection.prepareStatement("SELECT p.* FROM Product p\n" +
+                    "INNER JOIN product_order o ON p.productid = o.orderid\n" +
+                    "WHERE o.orderid = ?"); //Query werkt
+            stmt.setInt(1,OrderId); //vormt eerste vraagteken om in orderId
+            ResultSet rs = stmt.executeQuery(); //Uitvoeren query
+            while (rs.next()) {
+                Product product = new Product(rs.getInt(1), rs.getInt(2));
+                result.addProduct(product);
+            }
             return result;  //return result
         } catch (Exception e) {
+            System.out.println("Query Error..."); //Als er een fout is in het bewerken van de query
             return  null;
         }
     }
