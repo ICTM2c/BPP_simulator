@@ -7,7 +7,7 @@ public class FirstFit implements BBPAlgorithm {
     @Override
     public List<Box> simulate(int capacity, List<Product> products) {
         ArrayList<Box> ListBox = new ArrayList<Box>();
-        Box box1 = new Box(capacity); //De begin doos
+        Box box1 = new Box(capacity);       //De begin doos
         ListBox.add(box1);
 
         for (Product product : products) {
@@ -21,9 +21,9 @@ public class FirstFit implements BBPAlgorithm {
             }
 
             if (!didAdd) {
-                Box newBox = new Box(); //Maakt nieuwe doos met capacity en haal er de size van het het product vanaf
+                Box newBox = new Box();     //Maakt nieuwe doos met capacity en haal er de size van het het product vanaf
                 newBox.addProduct(product); //Voegt Product toe aan box
-                ListBox.add(newBox); //Voegt box toe aan list
+                ListBox.add(newBox);        //Voegt box toe aan list
             }
         }
         return ListBox;

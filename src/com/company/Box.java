@@ -18,13 +18,12 @@ public class Box {
     }
 
     public Box(int capacity) {
-//        Capacity = capacity;
         this();
     }
 
     public int totalUsed() {
         int counter = 0;
-        for (int i = 0; i < Products.size() ; i++) {
+        for (int i = 0; i < Products.size(); i++) {
             counter = counter + Products.get(i).getSize();
         }
         return counter;
@@ -54,8 +53,4 @@ public class Box {
     public int getCapacityLeftOver() {
         return CapacityLeftOver;
     }
-
-//    public void setCapacity(int capacity) {
-//        Capacity = capacity;
-//    }
 }
