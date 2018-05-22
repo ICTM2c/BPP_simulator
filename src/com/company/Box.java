@@ -29,6 +29,11 @@ public class Box {
         return counter;
     }
 
+    public void addProductDirect(Product product) {
+        Products.add(product);
+        CapacityLeftOver -= product.getSize();
+    }
+
     public boolean addProduct(Product product) { //Voegt een enkel product toe aan list
         if (CapacityLeftOver >= product.getSize()) {
             Products.add(product);

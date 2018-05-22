@@ -3,40 +3,43 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BestFit implements BBPAlgorithm {
+    //Het best fit algoritme vult de doos met de minste capaciteit over. Waar het product wel in past.
 
     @Override
     public List<Box> simulate(int capacity, List<Product> products) {
         ArrayList<Box> ListBox = new ArrayList<Box>();
-        ArrayList<Box> SizeLeftList = new ArrayList<Box>(); //List met passende dozen
-        Box box1 = new Box(capacity); //De begin doos
+        ArrayList<Box> ListBoxFit = new ArrayList<Box>();   //List met passende dozen
+        Box box1 = new Box(capacity);
         ListBox.add(box1);
-        int smallestSizeLeft = 0; //iniatilisatie zodat de vergelijker begint op de eerste doos
-        boolean Added;
+        boolean noFit = false;
 
-        for (int i = 0; i < products.size() ; i++) {
-            for (int j = 0; j < ListBox.size() ; j++) {
-                if (ListBox.get(j).getCapacityLeftOver() > products.get(i).getSize()) { //Als de (overgebleven) groote van de doos groter is als de groote van het product
-                    SizeLeftList.add(ListBox.get(j));//Voegt de doos toe aan de list met passende dozen
-                    Added = true;
-                } else {
-                    Added = false;
-                }
-            } if (Added = false) {
-                Box box2 = new Box(capacity);
-                SizeLeftList.add(box2);
-                i--;
-            } if (Added = true) {
-                for (int k = 0; k < SizeLeftList.size() ; k++) {
-                    if (SizeLeftList.get(smallestSizeLeft).getCapacityLeftOver() >= SizeLeftList.get(k).getCapacityLeftOver()) { //vergelijkt grootes van de overgebleven dozen en kiest de kleinste
-                        smallestSizeLeft = k;
+            for (int i = 0; i < products.size() ; i++) {
+                int SmallestFitPointer = 0;
+                if (!noFit) {
+                    for (int x = 0; x < products.size() ; x++) {
+                        for (int j = 0; j < ListBox.size(); j++) {
+                            if (ListBox.get(j).getCapacityLeftOver() > products.get(x).getSize()) {
+                                ListBoxFit.add(ListBox.get(j));
+                            } else {
+                                noFit = true;
+                            }
+                        }
+                    } if (!noFit) {
+                        for (int x = 0; x < ListBoxFit.size() ; x++) {
+                            if (ListBoxFit.get(SmallestFitPointer).getCapacityLeftOver() > ListBoxFit.get(x).getCapacityLeftOver()) {
+                                SmallestFitPointer = x;
+                            }
+                        }
+                        ListBoxFit.get(SmallestFitPointer).addProductDirect(products.get(i));
+                        ListBox.add(ListBoxFit.get(SmallestFitPointer));
                     }
+                } if (noFit) {
+                    Box box2 = new Box(capacity);
+                    box2.addProductDirect(products.get(i));
+                    ListBox.add(box2);
+                    noFit = false;
                 }
-                ListBox.add(SizeLeftList.get(smallestSizeLeft)); //voegt de uit eindelijke kleinste toe
-                SizeLeftList.clear(); //maakt de sizeleftlist leeg
-                smallestSizeLeft = 0; //Zet de pointer weer op de eerste plek
             }
-
-        }
         return ListBox;
     }
 }
