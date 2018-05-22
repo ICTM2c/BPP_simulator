@@ -6,10 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f410744-cd38-4020-8ca9-21e88883081f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Box.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/Box.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFitDecreasing.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/FirstFitDecreasing.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/BPP simulator/com/company/GUI.class" afterPath="$PROJECT_DIR$/out/production/BPP simulator/com/company/GUI.class" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java" afterPath="$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/BestFit.java" afterPath="$PROJECT_DIR$/src/com/company/BestFit.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/BestPickFit.java" afterPath="$PROJECT_DIR$/src/com/company/BestPickFit.java" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GUI.java" afterPath="$PROJECT_DIR$/src/com/company/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,12 +36,22 @@
       <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-456">
-              <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+            <state relative-caret-position="552">
+              <caret line="185" column="22" lean-forward="true" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#999#1008#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BestPickFit.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/company/BestPickFit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,8 +83,8 @@
       <file leaf-file-name="FirstFit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/FirstFit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+            <state relative-caret-position="546">
+              <caret line="26" column="13" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="26" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -83,11 +92,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FirstFitDecreasing.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FirstFitDecreasing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-15">
-              <caret line="23" column="79" lean-forward="false" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
+            <state relative-caret-position="384">
+              <caret line="42" column="25" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="45" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BestFit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/company/BestFit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -170,8 +189,6 @@
         <option value="$PROJECT_DIR$/src/com/company/JNumberTextField.java" />
         <option value="$PROJECT_DIR$/src/com/company/BBPAlgorithm.java" />
         <option value="$PROJECT_DIR$/src/com/company/BBPAlgorithmManager.java" />
-        <option value="$PROJECT_DIR$/src/com/company/BestFit.java" />
-        <option value="$PROJECT_DIR$/src/com/company/BestPickFit.java" />
         <option value="$PROJECT_DIR$/src/com/company/Customer.java" />
         <option value="$PROJECT_DIR$/src/com/company/Database.java" />
         <option value="$PROJECT_DIR$/src/com/company/Order.java" />
@@ -181,8 +198,10 @@
         <option value="$PROJECT_DIR$/src/com/company/TekenPanel.java" />
         <option value="$PROJECT_DIR$/src/com/company/FirstFit.java" />
         <option value="$PROJECT_DIR$/src/com/company/Box.java" />
-        <option value="$PROJECT_DIR$/src/com/company/GUI.java" />
         <option value="$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java" />
+        <option value="$PROJECT_DIR$/src/com/company/BestFit.java" />
+        <option value="$PROJECT_DIR$/src/com/company/GUI.java" />
+        <option value="$PROJECT_DIR$/src/com/company/BestPickFit.java" />
       </list>
     </option>
   </component>
@@ -384,7 +403,14 @@
       <option name="project" value="LOCAL" />
       <updated>1526981184518</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Suicide">
+      <created>1526982433700</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1526982433700</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -698,20 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/BestFit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/BestPickFit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="20" lean-forward="false" selection-start-line="0" selection-start-column="20" selection-end-line="0" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Customer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -753,17 +765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-456">
-          <caret line="134" column="0" lean-forward="false" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#999#1008#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -771,6 +772,35 @@
           <folding>
             <element signature="e#86#87#0" expanded="true" />
             <element signature="e#119#120#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+          <folding>
+            <element signature="e#281#282#0" expanded="true" />
+            <element signature="e#312#313#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="42" column="25" lean-forward="false" selection-start-line="39" selection-start-column="12" selection-end-line="45" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="26" column="13" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="26" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,31 +827,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFit.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="24" lean-forward="false" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
+        <state relative-caret-position="552">
+          <caret line="185" column="22" lean-forward="true" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#999#1008#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/product.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/BestFit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#281#282#0" expanded="true" />
-            <element signature="e#312#313#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="357">
+          <caret line="24" column="45" lean-forward="true" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/FirstFitDecreasing.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/BestPickFit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-15">
-          <caret line="23" column="79" lean-forward="false" selection-start-line="23" selection-start-column="79" selection-end-line="23" selection-end-column="79" />
+        <state relative-caret-position="429">
+          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
           <folding />
         </state>
       </provider>

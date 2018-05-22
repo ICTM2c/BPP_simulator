@@ -40,7 +40,7 @@ public class GUI extends JFrame implements ActionListener {
     private JButton CapaciteitOkButton;
 
     private JOptionPane bigProduct;
-    private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Next Fit", "Best Fit"};
+    private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Best Pick Fit", "Best Fit"};
     private JComboBox AlgoritmeLijst;
 
     private JLabel[] tekst = {selecterenAlgoritmeTekst, productenTekst, doosTekst, voegProductToeTekst, invoerenOrderTekst};
@@ -172,10 +172,16 @@ public class GUI extends JFrame implements ActionListener {
                 List<Box> BoxList = firstFitDecreasing.simulate(value,productList);
                 DrawPanel.setBoxes(BoxList);
                 DrawPanel.repaint();
-            } else if (selectedAlgorithm == "Next Fit") {
-                System.out.println("Next Fit");                             // hier komt Next Fit algoritme
+            } else if (selectedAlgorithm == "Best Pick Fit") {
+                BestPickFit bestPickFit = new BestPickFit();
+                List<Box> BoxList = bestPickFit.simulate(value,productList);
+                DrawPanel.setBoxes(BoxList);
+                DrawPanel.repaint();
             } else if (selectedAlgorithm == "Best Fit") {
-                System.out.println("Best Fit");                             // hier komt Best Fit algoritme
+                BestFit bestFit  = new BestFit();
+                List<Box> BoxList = bestFit.simulate(value,productList);
+                DrawPanel.setBoxes(BoxList);
+                DrawPanel.repaint();
             }
             repaint();
         }
