@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener {
@@ -25,13 +26,13 @@ public class GUI extends JFrame implements ActionListener {
 
     private JNumberTextField CapacityProduct;
     private JSpinner CapacityBox;
-    private ArrayList<Product> productList = new ArrayList<Product>();
+    private DefaultListModel<Product> productList = new DefaultListModel<Product>();
 
     // panels
     private JPanel Panel1;
     private JPanel Panel2;
     private JPanel Panel3;
-    private JPanel productenTekst;
+    private JList<Product> productenTekst;
     private TekenPanel DrawPanel;
 
     //knoppen
@@ -65,7 +66,7 @@ public class GUI extends JFrame implements ActionListener {
         Panel1 = new JPanel();
         Panel2 = new JPanel();
         Panel3 = new JPanel();
-        productenTekst = new JPanel();
+        productenTekst = new JList<Product>(productList);
         DrawPanel = new TekenPanel();
 
         Panel2.setLayout(new GridLayout(8, 1));
@@ -77,8 +78,8 @@ public class GUI extends JFrame implements ActionListener {
         Panel3.setPreferredSize(new Dimension(300, 600));
         DrawPanel.setPreferredSize(new Dimension(900, 600));
       productenTekst.setPreferredSize(new Dimension(300,300));
-      productenTekst.setBackground(Color.red);
-      productenTekst.setLayout(new GridLayout(0,1));
+//      productenTekst.setBackground(Color.red);
+//      productenTekst.setLayout(new GridLayout(0,1));
 
         DrawPanel.setBackground(Color.white);
 
@@ -161,11 +162,17 @@ public class GUI extends JFrame implements ActionListener {
             DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
             if (CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
-                productList.add(product);
+                productList.addElement(product);
+
+//                productenTekst.setModel(new DefaultListModel(productList.toArray()));
+                //productenTekst.
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        productenTekst.add(new JLabel("Product " + productList.size() + "  grootte: " + CapacityProduct.getNumber()));
+//                        productenTekst
+//                        productenTekst.setModel(new DefaultListModel(productList));
+
+//                        productenTekst.add(new JLabel("Product " + productList.size() + "  grootte: " + CapacityProduct.getNumber()));
                         productenTekst.validate();
                         productenTekst.repaint();
                     }
@@ -180,24 +187,27 @@ public class GUI extends JFrame implements ActionListener {
         } else if (e.getSource() == SimuleerButton) {                      //Simuleerknop
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
 
+
+            Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
+            List<Product> allProducts = Arrays.asList(t);
             if (selectedAlgorithm == "First Fit") {
                 FirstFit firstFit = new FirstFit();
-                List<Box> BoxList = firstFit.simulate(value, productList); //Runt Firstfit algoritme
+                List<Box> BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
                 DrawPanel.setBoxes(BoxList);
                 DrawPanel.repaint();
             } else if (selectedAlgorithm == "First Fit Decreasing") {
                 FirstFitDecreasing firstFitDecreasing = new FirstFitDecreasing();
-                List<Box> BoxList = firstFitDecreasing.simulate(value,productList);
+                List<Box> BoxList = firstFitDecreasing.simulate(value,allProducts);
                 DrawPanel.setBoxes(BoxList);
                 DrawPanel.repaint();
             } else if (selectedAlgorithm == "Best Pick Fit") {
                 BestPickFit bestPickFit = new BestPickFit();
-                List<Box> BoxList = bestPickFit.simulate(value,productList);
+                List<Box> BoxList = bestPickFit.simulate(value,allProducts);
                 DrawPanel.setBoxes(BoxList);
                 DrawPanel.repaint();
             } else if (selectedAlgorithm == "Best Fit") {
                 BestFit bestFit  = new BestFit();
-                List<Box> BoxList = bestFit.simulate(value,productList);
+                List<Box> BoxList = bestFit.simulate(value,allProducts);
                 DrawPanel.setBoxes(BoxList);
                 DrawPanel.repaint();
             }
