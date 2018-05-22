@@ -1,5 +1,7 @@
 package com.company;
 
+import javafx.scene.layout.Pane;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +16,7 @@ public class GUI extends JFrame implements ActionListener {
     //tekstvelden
     private JLabel titleTekst;                  //title;
     private JLabel selecterenAlgoritmeTekst;    // Algoritme Selecteren tekst
-    private JLabel productenTekst;              // Producten tekst
+    private JLabel productenTitelTekst;              // Producten tekst
     private JLabel doosTekst;                   // Doos tekst
     private JLabel voegProductToeTekst;         //voeg Product toe tekst
     private JLabel invoerenOrderTekst;          // Order invoeren tekst
@@ -22,15 +24,14 @@ public class GUI extends JFrame implements ActionListener {
     private JLabel productGrootteTekst;         // Grootte product tekst
 
     private JNumberTextField CapacityProduct;
-
     private JSpinner CapacityBox;
-
     private ArrayList<Product> productList = new ArrayList<Product>();
 
     // panels
     private JPanel Panel1;
     private JPanel Panel2;
     private JPanel Panel3;
+    private JPanel productenTekst;
     private TekenPanel DrawPanel;
 
     //knoppen
@@ -41,18 +42,19 @@ public class GUI extends JFrame implements ActionListener {
 
     private JOptionPane bigProduct;
     private String[] Algoritme = {"First Fit", "First Fit Decreasing", "Best Pick Fit", "Best Fit"};
+
+    private String[] producten = {};
     private JComboBox AlgoritmeLijst;
 
-    private JLabel[] tekst = {selecterenAlgoritmeTekst, productenTekst, doosTekst, voegProductToeTekst, invoerenOrderTekst};
 
     public GUI() {
-//    Box Box1 = new Box();
+
         setTitle("BPP simulator");
-        setSize(1050, 750);
+        setSize(1550 , 750);
         setLayout(new FlowLayout());
         setResizable(false);
 
-        SpinnerModel spinnerModel1 = new SpinnerNumberModel(0, 0, 100, 1);
+        SpinnerModel spinnerModel1 = new SpinnerNumberModel(50, 10, 100, 1);
 
         CapacityBox = new JSpinner(spinnerModel1);
         CapacityProduct = new JNumberTextField();
@@ -63,15 +65,20 @@ public class GUI extends JFrame implements ActionListener {
         Panel1 = new JPanel();
         Panel2 = new JPanel();
         Panel3 = new JPanel();
+        productenTekst = new JPanel();
         DrawPanel = new TekenPanel();
 
         Panel2.setLayout(new GridLayout(8, 1));
-        Panel3.setLayout(new GridLayout(6 + productList.size(), 1));
+      //  Panel3.setLayout(new GridLayout(10, 1));
+        Panel3.setLayout(new FlowLayout());
 
-        Panel1.setPreferredSize(new Dimension(1000, 100));
-        Panel2.setPreferredSize(new Dimension(300, 350));
-        Panel3.setPreferredSize(new Dimension(300, 350));
-        DrawPanel.setPreferredSize(new Dimension(400, 600));
+        Panel1.setPreferredSize(new Dimension(1500, 100));
+        Panel2.setPreferredSize(new Dimension(300, 600));
+        Panel3.setPreferredSize(new Dimension(300, 600));
+        DrawPanel.setPreferredSize(new Dimension(900, 600));
+      productenTekst.setPreferredSize(new Dimension(300,300));
+      productenTekst.setBackground(Color.red);
+      productenTekst.setLayout(new GridLayout(0,1));
 
         DrawPanel.setBackground(Color.white);
 
@@ -84,7 +91,7 @@ public class GUI extends JFrame implements ActionListener {
         // alle JLabels
         titleTekst = new JLabel("BPP - Simulator");
         selecterenAlgoritmeTekst = new JLabel("Selecteren Algoritme");
-        productenTekst = new JLabel("Producten");
+        productenTitelTekst = new JLabel("Producten");
         doosTekst = new JLabel("Doos");
         voegProductToeTekst = new JLabel("Voeg product toe");
         invoerenOrderTekst = new JLabel("Invoeren order");
@@ -93,7 +100,7 @@ public class GUI extends JFrame implements ActionListener {
 
         titleTekst.setFont(new Font("Serif", Font.PLAIN, 30));
         selecterenAlgoritmeTekst.setFont(new Font("Serif", Font.PLAIN, 20));
-        productenTekst.setFont(new Font("Serif", Font.PLAIN, 20));
+        productenTitelTekst.setFont(new Font("Serif", Font.PLAIN, 20));
         doosTekst.setFont(new Font("Serif", Font.PLAIN, 20));
         voegProductToeTekst.setFont(new Font("Serif", Font.PLAIN, 20));
         invoerenOrderTekst.setFont(new Font("Serif", Font.PLAIN, 20));
@@ -122,6 +129,7 @@ public class GUI extends JFrame implements ActionListener {
         Panel2.add(bestandButton);
 
 //panel 3 components
+        Panel3.add(productenTitelTekst);
         Panel3.add(productenTekst);
         Panel3.add(voegProductToeTekst);
         Panel3.add(productGrootteTekst);
@@ -131,6 +139,8 @@ public class GUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
+
+
     }
 
     @Override
@@ -152,6 +162,14 @@ public class GUI extends JFrame implements ActionListener {
             if (CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
                 productList.add(product);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        productenTekst.add(new JLabel("Product " + productList.size() + "  grootte: " + CapacityProduct.getNumber()));
+                        productenTekst.validate();
+                        productenTekst.repaint();
+                    }
+                });
                 System.out.println(productList.size());
             } else if (CapacityProduct.getNumber() > Box.getCapacity()) {
                 bigProduct.showMessageDialog(ToevoegenButton, "Product te groot");
