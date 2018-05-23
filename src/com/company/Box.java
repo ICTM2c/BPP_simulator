@@ -1,8 +1,9 @@
 package com.company;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
-public class Box {
+public class Box implements Comparable<Box> {
 
     private List<Product> Products;
     private static int Capacity = 50;
@@ -35,7 +36,7 @@ public class Box {
     }
 
     public boolean addProduct(Product product) { //Voegt een enkel product toe aan list
-        if (CapacityLeftOver >= product.getSize()) {
+        if (canFit(product)) {
             Products.add(product);
             CapacityLeftOver -= product.getSize();
             return true;
@@ -57,5 +58,14 @@ public class Box {
 
     public int getCapacityLeftOver() {
         return CapacityLeftOver;
+    }
+
+    @Override
+    public int compareTo(Box o) {
+        return o.getCapacityLeftOver() - this.getCapacityLeftOver();
+    }
+
+    public boolean canFit(Product product) {
+        return CapacityLeftOver >= product.getSize();
     }
 }

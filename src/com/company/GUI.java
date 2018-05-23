@@ -1,7 +1,5 @@
 package com.company;
 
-import javafx.scene.layout.Pane;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
