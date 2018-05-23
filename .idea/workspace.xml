@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad3bff35-8112-483f-825b-f0c8e1b13ac7" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Box.java" afterPath="$PROJECT_DIR$/src/com/company/Box.java" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GUI.java" afterPath="$PROJECT_DIR$/src/com/company/GUI.java" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BBPAlgorithm.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BBPAlgorithm.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BBPAlgorithmManager.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BBPAlgorithmManager.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BestFit.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BestFit.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BestPickFit.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/BestPickFit.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Box.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Box.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Customer.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Customer.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/FirstFit.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/FirstFit.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/FirstFitDecreasing.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/FirstFitDecreasing.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/GUI$1.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/GUI$1.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/GUI.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/GUI.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/JNumberTextField.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/JNumberTextField.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Main.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Main.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Order.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Order.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Product.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/Product.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/TekenPanel.class" afterPath="$PROJECT_DIR$/out/production/BPP_simulator/com/company/TekenPanel.class" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Order.java" afterPath="$PROJECT_DIR$/src/com/company/Order.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,21 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Order.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Order.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Order.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="63" column="82" lean-forward="false" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order_0.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/order_0.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="4">
+              <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -41,9 +43,10 @@
       <file leaf-file-name="Box.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Box.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-231">
-              <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+            <state relative-caret-position="-269">
+              <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
               <folding>
+                <element signature="e#157#158#0" expanded="true" />
                 <element signature="e#190#191#0" expanded="true" />
                 <element signature="e#246#247#0" expanded="true" />
                 <element signature="e#289#290#0" expanded="true" />
@@ -100,6 +103,7 @@
         <option value="$PROJECT_DIR$/src/com/company/BestFit.java" />
         <option value="$PROJECT_DIR$/src/com/company/Box.java" />
         <option value="$PROJECT_DIR$/src/com/company/GUI.java" />
+        <option value="$PROJECT_DIR$/order_0.html" />
         <option value="$PROJECT_DIR$/src/com/company/Order.java" />
       </list>
     </option>
@@ -272,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1527059508584</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="HTML Output working">
+      <created>1527064318314</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1527064318314</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -314,7 +325,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Best pick Working, GUI, Best fit working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Best pick Working, GUI, Best fit working" />
+    <MESSAGE value="HTML Output working" />
+    <option name="LAST_COMMIT_MESSAGE" value="HTML Output working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -386,6 +398,7 @@
         <state relative-caret-position="63">
           <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
+            <element signature="e#157#158#0" expanded="true" />
             <element signature="e#190#191#0" expanded="true" />
             <element signature="e#246#247#0" expanded="true" />
             <element signature="e#289#290#0" expanded="true" />
@@ -548,32 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding>
-            <element signature="e#190#191#0" expanded="true" />
-            <element signature="e#246#247#0" expanded="true" />
-            <element signature="e#289#290#0" expanded="true" />
-            <element signature="e#318#319#0" expanded="true" />
-            <element signature="e#346#347#0" expanded="true" />
-            <element signature="e#385#386#0" expanded="true" />
-            <element signature="e#419#420#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#531#532#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/box_0">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -590,6 +577,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/order_0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -600,18 +603,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Order.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Box.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="63" column="82" lean-forward="false" selection-start-line="63" selection-start-column="82" selection-end-line="63" selection-end-column="82" />
-          <folding />
+        <state relative-caret-position="-269">
+          <caret line="45" column="24" lean-forward="true" selection-start-line="45" selection-start-column="24" selection-end-line="45" selection-end-column="24" />
+          <folding>
+            <element signature="e#157#158#0" expanded="true" />
+            <element signature="e#190#191#0" expanded="true" />
+            <element signature="e#246#247#0" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#480#481#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/order_0.html">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="4">
+          <caret line="26" column="25" lean-forward="false" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
           <folding />
         </state>
       </provider>

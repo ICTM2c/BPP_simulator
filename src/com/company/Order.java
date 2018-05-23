@@ -44,17 +44,7 @@ public class Order {
         products.add(product);
     }
 
-    public void printOrder() {  //Test om orderID uit te printen
-        int counter = 1;
-        System.out.println("OrderID: " + OrderId);
-        System.out.println("Lijst met producten");
-        for (int i = 0; i < products.size(); i++) {
-            System.out.println("Product" + counter + " ProductID: " + products.get(i).getProductId() + " Size: " + products.get(i).getSize());
-            counter++;
-        }
-    }
-
-    public void CreateDeliveryNote(List<Box> boxList, int orderId) {
+    public void CreateDeliveryNote(List<Box> boxList, int orderId) { //HTML print methode
         String file = "order_";
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(file + orderId + ".html"));
