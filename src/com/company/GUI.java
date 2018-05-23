@@ -1,12 +1,11 @@
 package com.company;
 
-import javafx.scene.layout.Pane;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
 public class GUI extends JFrame implements ActionListener {
@@ -25,13 +24,13 @@ public class GUI extends JFrame implements ActionListener {
 
     private JNumberTextField CapacityProduct;
     private JSpinner CapacityBox;
-    private ArrayList<Product> productList = new ArrayList<Product>();
+    private DefaultListModel<Product> productList = new DefaultListModel<Product>();
 
     // panels
     private JPanel Panel1;
     private JPanel Panel2;
     private JPanel Panel3;
-    private JPanel productenTekst;
+    private JList<Product> productenTekst;
     private TekenPanel DrawPanel;
 
     //knoppen
@@ -65,7 +64,7 @@ public class GUI extends JFrame implements ActionListener {
         Panel1 = new JPanel();
         Panel2 = new JPanel();
         Panel3 = new JPanel();
-        productenTekst = new JPanel();
+        productenTekst = new JList<Product>(productList);
         DrawPanel = new TekenPanel();
 
         Panel2.setLayout(new GridLayout(8, 1));
@@ -76,9 +75,6 @@ public class GUI extends JFrame implements ActionListener {
         Panel2.setPreferredSize(new Dimension(300, 600));
         Panel3.setPreferredSize(new Dimension(300, 600));
         DrawPanel.setPreferredSize(new Dimension(900, 600));
-      productenTekst.setPreferredSize(new Dimension(300,300));
-      productenTekst.setBackground(Color.red);
-      productenTekst.setLayout(new GridLayout(0,1));
 
         DrawPanel.setBackground(Color.white);
 
@@ -106,6 +102,7 @@ public class GUI extends JFrame implements ActionListener {
         invoerenOrderTekst.setFont(new Font("Serif", Font.PLAIN, 20));
 
         CapacityProduct.setSize(20, 5);
+        CapacityProduct.setPreferredSize(new Dimension(40, 20));
 
         bestandButton.addActionListener(this);
         ToevoegenButton.addActionListener(this);
@@ -130,7 +127,7 @@ public class GUI extends JFrame implements ActionListener {
 
 //panel 3 components
         Panel3.add(productenTitelTekst);
-        Panel3.add(productenTekst);
+        Panel3.add(new JScrollPane(productenTekst));
         Panel3.add(voegProductToeTekst);
         Panel3.add(productGrootteTekst);
         Panel3.add(CapacityProduct);
@@ -161,11 +158,11 @@ public class GUI extends JFrame implements ActionListener {
             DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
             if (CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
-                productList.add(product);
+                productList.addElement(product);
+
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        productenTekst.add(new JLabel("Product " + productList.size() + "  grootte: " + CapacityProduct.getNumber()));
                         productenTekst.validate();
                         productenTekst.repaint();
                     }
@@ -180,28 +177,73 @@ public class GUI extends JFrame implements ActionListener {
         } else if (e.getSource() == SimuleerButton) {                      //Simuleerknop
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
 
+
+            Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
+            List<Product> allProducts = Arrays.asList(t);
+            List<Box> BoxList = new ArrayList<>();
             if (selectedAlgorithm == "First Fit") {
                 FirstFit firstFit = new FirstFit();
-                List<Box> BoxList = firstFit.simulate(value, productList); //Runt Firstfit algoritme
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
             } else if (selectedAlgorithm == "First Fit Decreasing") {
                 FirstFitDecreasing firstFitDecreasing = new FirstFitDecreasing();
-                List<Box> BoxList = firstFitDecreasing.simulate(value,productList);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = firstFitDecreasing.simulate(value,allProducts);
             } else if (selectedAlgorithm == "Best Pick Fit") {
                 BestPickFit bestPickFit = new BestPickFit();
-                List<Box> BoxList = bestPickFit.simulate(value,productList);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = bestPickFit.simulate(value,allProducts);
             } else if (selectedAlgorithm == "Best Fit") {
                 BestFit bestFit  = new BestFit();
-                List<Box> BoxList = bestFit.simulate(value,productList);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = bestFit.simulate(value,allProducts);
             }
+            DrawPanel.setBoxes(BoxList);
+            DrawPanel.repaint();
+            Order order = new Order();
+            order.CreateDeliveryNote(BoxList,order.getOrderId());
             repaint();
         }
     }
+
+//    private void selectGridFromOrder() {
+//        //Create a file chooser
+//        final JFileChooser fc = new JFileChooser();
+//
+//        //In response to a button click:
+//        int returnVal = fc.showOpenDialog(this);
+//
+//        if (returnVal != JFileChooser.APPROVE_OPTION) {
+//            return;
+//        }
+//
+//        File f = fc.getSelectedFile();
+//        try (FileInputStream br = new FileInputStream(f.getAbsolutePath())) {
+//            // Read the order file.
+//            String json = new String(br.readAllBytes(), "UTF-8");
+//
+//            // Deserialize it from Json to an Order object.
+//            Gson deserializer = new Gson();
+//            Order order = deserializer.fromJson(json, Order.class);
+//
+//            // Find all the products which are linked to the order including their location.
+//            List<TSPSimulator.Models.Product> products = DbProduct.Get().findProductsForOrder(order.getOrder());
+//
+//            // Reset the size of the grid.
+//            pnlSimulator.setSizeX(5);
+//            pnlSimulator.setSizeY(5);
+//
+//            // Fill the products in the grid.
+//            for (TSPSimulator.Models.Product product : products) {
+//                pnlSimulator.setIsClicked((int) product.getLocation().getX(), (int) product.getLocation().getY(), true);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Unable to retrieve the order from the database.");
+//        } catch (FileNotFoundException e) {
+//            JOptionPane.showMessageDialog(this, "The file could not be found. Has it been removed?");
+//        } catch (IOException e) {
+//            JOptionPane.showMessageDialog(this, "Unable to open the order file.");
+//        } catch (JsonSyntaxException e) {
+//            JOptionPane.showMessageDialog(this, "The file is not an order file.");
+//        } catch (OrderNotFoundException e) {
+//            JOptionPane.showMessageDialog(this, e.toString());
+//        }
+//    }
 }

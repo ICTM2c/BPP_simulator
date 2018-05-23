@@ -1,7 +1,7 @@
 package com.company;
-class Product {
-
-    private int ProductId;
+class Product implements Comparable<Product> {
+    private static int s_productCounter = 0;
+    private int ProductId = s_productCounter++;
     private String Name;
     private int Size;
 
@@ -39,5 +39,15 @@ class Product {
 
     public void setSize(int size) {
         Size = size;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductId " + getProductId() + ", Size: " + getSize();
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return o.getSize() - getSize();
     }
 }
