@@ -30,6 +30,7 @@ public class GUI extends JFrame implements ActionListener {
     private JButton JbSimuleer;
     private JButton JbOk;
     private JButton JbOverzicht;
+    private JButton JbReset;
     //andere componenten
     private JNumberTextField JtfCapacityProduct;
     private JSpinner JspCapacityBox;
@@ -39,6 +40,7 @@ public class GUI extends JFrame implements ActionListener {
 
     private String[] AlgoritmeNamen = {"First Fit", "First Fit Decreasing", "Best Pick Fit", "Best Fit"};
     int value;
+
 
     public GUI() {
 
@@ -76,6 +78,7 @@ public class GUI extends JFrame implements ActionListener {
         JbSimuleer = new JButton("Simuleer");
         JbOk = new JButton("OK");
         JbOverzicht = new JButton("Overzicht");
+        JbReset = new JButton("Reset");
 
         // alle JLabels
         Jlbltitle = new JLabel("BPP - Simulator");
@@ -101,6 +104,8 @@ public class GUI extends JFrame implements ActionListener {
         JbToevoegen.addActionListener(this);
         JbSimuleer.addActionListener(this);
         JbOk.addActionListener(this);
+        JbOverzicht.addActionListener(this);
+        JbReset.addActionListener(this);
 
         //panels aan GUI toevoegen
         add(JpTitel);           // titel panel toegevoegd aan GUI
@@ -130,6 +135,7 @@ public class GUI extends JFrame implements ActionListener {
         JpProduct.add(JtfCapacityProduct);                  // Capaciteit product Jtextfield toegevoegd aan Product Panel
         JpProduct.add(JbToevoegen);                         // Toevoegen knop toegevoegd aan Product Panel
         JpProduct.add(JbSimuleer);                          // Simuleer knop toegevoegd aan Product Panel
+        JpProduct.add(JbReset);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -200,6 +206,16 @@ public class GUI extends JFrame implements ActionListener {
             }
             repaint();
         }else if (e.getSource() == JbOverzicht) {
+            Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
+            List<Product> allProducts = Arrays.asList(t);
+            System.out.println("Knop doet het!");
+            GuiOverzicht gO = new GuiOverzicht(value, allProducts);
+        }else if (e.getSource() == JbReset) {
+            productList.clear();
+            Graphics g = TpDrawProduct.getGraphics();
+            g.setColor(Color.WHITE);
+            g.fillRect(0,0,900,600);
+          //  TpDrawProduct.getGraphics().setColor(Color.BLACK);
 
         }
     }
