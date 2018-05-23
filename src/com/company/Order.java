@@ -1,4 +1,7 @@
 package com.company;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +54,12 @@ public class Order {
     }
 
     public void CreateDeliveryNote() {
-        //Moet nog worden gemaakt wanneer de rest werkt
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+        try {
+            bw.write("<html><head><title>Output Page</title></head><body><p>This is Body</p></body></html>");
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

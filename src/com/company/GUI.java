@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
@@ -75,9 +74,6 @@ public class GUI extends JFrame implements ActionListener {
         Panel2.setPreferredSize(new Dimension(300, 600));
         Panel3.setPreferredSize(new Dimension(300, 600));
         DrawPanel.setPreferredSize(new Dimension(900, 600));
-//      productenTekst.setPreferredSize(new Dimension(300,300));
-//      productenTekst.setBackground(Color.red);
-//      productenTekst.setLayout(new GridLayout(0,1));
 
         DrawPanel.setBackground(Color.white);
 
@@ -163,15 +159,9 @@ public class GUI extends JFrame implements ActionListener {
                 Product product = new Product(CapacityProduct.getNumber());
                 productList.addElement(product);
 
-//                productenTekst.setModel(new DefaultListModel(productList.toArray()));
-                //productenTekst.
                 SwingUtilities.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-//                        productenTekst
-//                        productenTekst.setModel(new DefaultListModel(productList));
-
-//                        productenTekst.add(new JLabel("Product " + productList.size() + "  grootte: " + CapacityProduct.getNumber()));
                         productenTekst.validate();
                         productenTekst.repaint();
                     }
