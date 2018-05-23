@@ -9,12 +9,12 @@ public class TekenPanel extends JPanel {
     private int SizeProduct;
     private List<Box> _boxes = new ArrayList<>();
     private final int boxWidth = 50;
-    private final int boxHeight = 404;
+    private final int boxHeight = 400;
     private final int StringHeight = 83;
 
 
     public TekenPanel() {
-        this.setPreferredSize(new Dimension(400, 500));
+      //  this.setPreferredSize(new Dimension(400, 500));
 
     }
 
@@ -26,13 +26,20 @@ public class TekenPanel extends JPanel {
         _boxes = boxes;
     }
 
+    public void ResetPanel(Graphics g){
+        super.paintComponent(g);
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0,900,600);
+    }
+
+
     public void tekenProduct(Graphics g) {
         super.paintComponent(g);
         ArrayList<Color> Kleuren = new ArrayList<>();
         setBackground(Color.WHITE);
 
         for (int i = 0; i < _boxes.size(); i++) { //loopt de verschillende dozen
-            int Xas = 100 + (150 * i); //Xas pos berekening
+            int Xas = 75 + (150 * i); //Xas pos berekening
             int PixelCounter = 0; //counter om begin hoogte weer te geven
             int Yas = 100 + PixelCounter; //yas pos berekening
             int pixelsPerSlot = 400 / Box.getCapacity(); //pixels per 1 size
