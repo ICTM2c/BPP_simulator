@@ -75,7 +75,7 @@ public class GUI extends JFrame implements ActionListener {
         Panel2.setPreferredSize(new Dimension(300, 600));
         Panel3.setPreferredSize(new Dimension(300, 600));
         DrawPanel.setPreferredSize(new Dimension(900, 600));
-      productenTekst.setPreferredSize(new Dimension(300,300));
+//      productenTekst.setPreferredSize(new Dimension(300,300));
 //      productenTekst.setBackground(Color.red);
 //      productenTekst.setLayout(new GridLayout(0,1));
 
@@ -105,6 +105,7 @@ public class GUI extends JFrame implements ActionListener {
         invoerenOrderTekst.setFont(new Font("Serif", Font.PLAIN, 20));
 
         CapacityProduct.setSize(20, 5);
+        CapacityProduct.setPreferredSize(new Dimension(40, 20));
 
         bestandButton.addActionListener(this);
         ToevoegenButton.addActionListener(this);
@@ -129,7 +130,7 @@ public class GUI extends JFrame implements ActionListener {
 
 //panel 3 components
         Panel3.add(productenTitelTekst);
-        Panel3.add(productenTekst);
+        Panel3.add(new JScrollPane(productenTekst));
         Panel3.add(voegProductToeTekst);
         Panel3.add(productGrootteTekst);
         Panel3.add(CapacityProduct);

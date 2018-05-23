@@ -1,7 +1,7 @@
 package com.company;
 class Product implements Comparable<Product> {
-
-    private int ProductId;
+    private static int s_productCounter = 0;
+    private int ProductId = s_productCounter++;
     private String Name;
     private int Size;
 
@@ -43,7 +43,7 @@ class Product implements Comparable<Product> {
 
     @Override
     public String toString() {
-        return "Product " + getSize();
+        return "ProductId " + getProductId() + ", Size: " + getSize();
     }
 
     @Override
