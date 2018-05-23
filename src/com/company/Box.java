@@ -1,10 +1,30 @@
 package com.company;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Box implements Comparable<Box> {
+    public static int getBoxCounter() {
+        return boxCounter;
+    }
 
+    public static void setBoxCounter(int boxCounter) {
+        Box.boxCounter = boxCounter;
+    }
+
+    public int getBoxId() {
+        return boxId;
+    }
+
+    public void setBoxId(int boxId) {
+        this.boxId = boxId;
+    }
+
+    public void setCapacityLeftOver(int capacityLeftOver) {
+        CapacityLeftOver = capacityLeftOver;
+    }
+
+    private static int boxCounter = 0;
+    private int boxId = boxCounter++;
     private List<Product> Products;
     private static int Capacity = 50;
     private int CapacityLeftOver;

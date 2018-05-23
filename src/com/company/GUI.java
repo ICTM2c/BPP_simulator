@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.*;
@@ -179,28 +180,70 @@ public class GUI extends JFrame implements ActionListener {
 
             Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
             List<Product> allProducts = Arrays.asList(t);
+            List<Box> BoxList = new ArrayList<>();
             if (selectedAlgorithm == "First Fit") {
                 FirstFit firstFit = new FirstFit();
-                List<Box> BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
             } else if (selectedAlgorithm == "First Fit Decreasing") {
                 FirstFitDecreasing firstFitDecreasing = new FirstFitDecreasing();
-                List<Box> BoxList = firstFitDecreasing.simulate(value,allProducts);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = firstFitDecreasing.simulate(value,allProducts);
             } else if (selectedAlgorithm == "Best Pick Fit") {
                 BestPickFit bestPickFit = new BestPickFit();
-                List<Box> BoxList = bestPickFit.simulate(value,allProducts);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = bestPickFit.simulate(value,allProducts);
             } else if (selectedAlgorithm == "Best Fit") {
                 BestFit bestFit  = new BestFit();
-                List<Box> BoxList = bestFit.simulate(value,allProducts);
-                DrawPanel.setBoxes(BoxList);
-                DrawPanel.repaint();
+                BoxList = bestFit.simulate(value,allProducts);
             }
+            DrawPanel.setBoxes(BoxList);
+            DrawPanel.repaint();
+            Order order = new Order();
+            order.CreateDeliveryNote(BoxList,order.getOrderId());
             repaint();
         }
     }
+
+//    private void selectGridFromOrder() {
+//        //Create a file chooser
+//        final JFileChooser fc = new JFileChooser();
+//
+//        //In response to a button click:
+//        int returnVal = fc.showOpenDialog(this);
+//
+//        if (returnVal != JFileChooser.APPROVE_OPTION) {
+//            return;
+//        }
+//
+//        File f = fc.getSelectedFile();
+//        try (FileInputStream br = new FileInputStream(f.getAbsolutePath())) {
+//            // Read the order file.
+//            String json = new String(br.readAllBytes(), "UTF-8");
+//
+//            // Deserialize it from Json to an Order object.
+//            Gson deserializer = new Gson();
+//            Order order = deserializer.fromJson(json, Order.class);
+//
+//            // Find all the products which are linked to the order including their location.
+//            List<TSPSimulator.Models.Product> products = DbProduct.Get().findProductsForOrder(order.getOrder());
+//
+//            // Reset the size of the grid.
+//            pnlSimulator.setSizeX(5);
+//            pnlSimulator.setSizeY(5);
+//
+//            // Fill the products in the grid.
+//            for (TSPSimulator.Models.Product product : products) {
+//                pnlSimulator.setIsClicked((int) product.getLocation().getX(), (int) product.getLocation().getY(), true);
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            JOptionPane.showMessageDialog(this, "Unable to retrieve the order from the database.");
+//        } catch (FileNotFoundException e) {
+//            JOptionPane.showMessageDialog(this, "The file could not be found. Has it been removed?");
+//        } catch (IOException e) {
+//            JOptionPane.showMessageDialog(this, "Unable to open the order file.");
+//        } catch (JsonSyntaxException e) {
+//            JOptionPane.showMessageDialog(this, "The file is not an order file.");
+//        } catch (OrderNotFoundException e) {
+//            JOptionPane.showMessageDialog(this, e.toString());
+//        }
+//    }
 }
