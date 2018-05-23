@@ -154,7 +154,7 @@ public class GUI extends JFrame implements ActionListener {
                 return;
             }
             File f = fc.getSelectedFile();
-        } else if (e.getSource() == ToevoegenButton) {                     // knop om producten toe te voegen
+        } else if (e.getSource() == ToevoegenButton) {                      // knop om producten toe te voegen
             DrawPanel.set_SizeProduct(CapacityProduct.getNumber());
             if (CapacityProduct.getNumber() <= Box.getCapacity() && CapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(CapacityProduct.getNumber());
@@ -174,14 +174,14 @@ public class GUI extends JFrame implements ActionListener {
             } else if (CapacityProduct.getNumber() < 1) {
                 bigProduct.showMessageDialog(ToevoegenButton, "Product te klein");
             }
-        } else if (e.getSource() == SimuleerButton) {                      //Simuleerknop
+        } else if (e.getSource() == SimuleerButton) {                                       //Simuleerknop
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
             Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
             List<Product> allProducts = Arrays.asList(t);
             List<Box> BoxList = new ArrayList<>();
             if (selectedAlgorithm == "First Fit") {
                 FirstFit firstFit = new FirstFit();
-                BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
+                BoxList = firstFit.simulate(value, allProducts);                            //Runt Firstfit algoritme
             } else if (selectedAlgorithm == "First Fit Decreasing") {
                 FirstFitDecreasing firstFitDecreasing = new FirstFitDecreasing();
                 BoxList = firstFitDecreasing.simulate(value,allProducts);
