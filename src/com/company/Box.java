@@ -42,20 +42,12 @@ public class Box implements Comparable<Box> {
         this();
     }
 
-    public int totalUsed() {
-        int counter = 0;
-        for (int i = 0; i < Products.size(); i++) {
-            counter = counter + Products.get(i).getSize();
-        }
-        return counter;
-    }
-
     public void addProductDirect(Product product) { //Voegt een enkel product toe aan list
         Products.add(product);
         CapacityLeftOver -= product.getSize();
     }
 
-    public boolean addProduct(Product product) {
+    public boolean addProduct(Product product) { //Voegt een product toe nadat deze is gecheckt of het past in de box
         if (canFit(product)) {
             Products.add(product);
             CapacityLeftOver -= product.getSize();
@@ -66,10 +58,6 @@ public class Box implements Comparable<Box> {
 
     public List<Product> getProducts() {
         return Products;
-    }
-
-    public void setProducts(List<Product> products) {
-        Products = products;
     }
 
     public static int getCapacity() {

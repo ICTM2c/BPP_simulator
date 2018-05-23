@@ -21,10 +21,6 @@ class Product implements Comparable<Product> {
         return ProductId;
     }
 
-    public void setProductId(int productId) {
-        ProductId = productId;
-    }
-
     public String getName() {
         return Name;
     }
@@ -35,10 +31,6 @@ class Product implements Comparable<Product> {
 
     public int getSize() {
         return Size;
-    }
-
-    public void setSize(int size) {
-        Size = size;
     }
 
     @Override
