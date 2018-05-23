@@ -50,12 +50,12 @@ public class Box implements Comparable<Box> {
         return counter;
     }
 
-    public void addProductDirect(Product product) {
+    public void addProductDirect(Product product) { //Voegt een enkel product toe aan list
         Products.add(product);
         CapacityLeftOver -= product.getSize();
     }
 
-    public boolean addProduct(Product product) { //Voegt een enkel product toe aan list
+    public boolean addProduct(Product product) {
         if (canFit(product)) {
             Products.add(product);
             CapacityLeftOver -= product.getSize();

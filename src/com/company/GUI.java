@@ -176,8 +176,6 @@ public class GUI extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == SimuleerButton) {                      //Simuleerknop
             String selectedAlgorithm = (String) AlgoritmeLijst.getSelectedItem();
-
-
             Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
             List<Product> allProducts = Arrays.asList(t);
             List<Box> BoxList = new ArrayList<>();
@@ -201,7 +199,6 @@ public class GUI extends JFrame implements ActionListener {
             repaint();
         }
     }
-
 //    private void selectGridFromOrder() {
 //        //Create a file chooser
 //        final JFileChooser fc = new JFileChooser();
