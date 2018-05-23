@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BPP_simulator.iml" filepath="$PROJECT_DIR$/BPP_simulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BPP.iml" filepath="$PROJECT_DIR$/BPP.iml" />
     </modules>
   </component>
 </project>
