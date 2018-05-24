@@ -58,7 +58,7 @@ public class Box implements Comparable<Box> {
     public boolean addProduct(Product product) { //Voegt een enkel product toe aan list
         if (canFit(product)) {
             Products.add(product);
-            CapacityLeftOver -= product.getSize();
+           CapacityLeftOver -= product.getSize();
             return true;
         }
         return false;

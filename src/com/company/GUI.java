@@ -162,7 +162,7 @@ public class GUI extends JFrame implements ActionListener {
             if (JtfCapacityProduct.getNumber() <= Box.getCapacity() && JtfCapacityProduct.getNumber() >= 1) { // product grootte vergelijken met doos grootte
                 Product product = new Product(JtfCapacityProduct.getNumber());
                 productList.addElement(product);
-                System.out.println(productList.size());
+              //  System.out.println(productList.size());
             } else if (JtfCapacityProduct.getNumber() > Box.getCapacity()) {
                 JopGrootteProduct.showMessageDialog(JbToevoegen, "Product te groot");
 
