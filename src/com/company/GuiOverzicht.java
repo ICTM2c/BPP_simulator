@@ -57,7 +57,7 @@ public class GuiOverzicht extends JFrame{
         JpFirstFit.add(JlFirstFit);
         JpFirstFitDecreasing.add(JlFirstFitDecreasing);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
     }
 }

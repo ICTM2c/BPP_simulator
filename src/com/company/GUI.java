@@ -124,8 +124,8 @@ public class GUI extends JFrame implements ActionListener {
         JpAlgoritme.add(JlbldoosCapaciteit);        // Doos capaciteit Jlabel toegevoegd aan Algoritme Panel
         JpAlgoritme.add(JspCapacityBox);            // Capaciteit doos Jspinner toegevoegd aan Algoritme Panel
         JpAlgoritme.add(JbOk);                      // Ok Jbutton toegevoegd aan Algoritme Panel
-        JpAlgoritme.add(JlblinvoerenOrder);         // Invoeren order Jlabel toegevoegd aan Algoritme Panel
-        JpAlgoritme.add(JbBestand);                 // Bestand Jbutton toegevoegd aan Algoritme Panel
+      //  JpAlgoritme.add(JlblinvoerenOrder);         // Invoeren order Jlabel toegevoegd aan Algoritme Panel
+       // JpAlgoritme.add(JbBestand);                 // Bestand Jbutton toegevoegd aan Algoritme Panel
 
         // Product panel componenten
         JpProduct.add(JlblproductenTitel);                  // Producten titel Jlabel toegevoegd aan Product Panel
@@ -146,9 +146,33 @@ public class GUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == JbOk) {                          // knop om invoer product te bevestigen
+            String selectedAlgorithm = (String) JcbAlgoritmeLijst.getSelectedItem();
             value = Integer.parseInt(JspCapacityBox.getValue().toString());    //Ingevoerde waarde
             Box.setCapacity(value);                                         //Zet de capaciteit van de doos
-            TpDrawProduct.repaint();                                            //Refreshed de GUI
+            System.out.println(Box.getCapacity());
+            Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
+            List<Product> allProducts = Arrays.asList(t);
+            if (selectedAlgorithm == "First Fit") {
+                FirstFit firstFit = new FirstFit();
+                List<Box> BoxList = firstFit.simulate(value, allProducts); //Runt Firstfit algoritme
+                TpDrawProduct.setBoxes(BoxList);
+                TpDrawProduct.repaint();
+            } else if (selectedAlgorithm == "First Fit Decreasing") {
+                FirstFitDecreasing firstFitDecreasing = new FirstFitDecreasing();
+                List<Box> BoxList = firstFitDecreasing.simulate(value,allProducts);
+                TpDrawProduct.setBoxes(BoxList);
+                TpDrawProduct.repaint();
+            } else if (selectedAlgorithm == "Best Pick Fit") {
+                BestPickFit bestPickFit = new BestPickFit();
+                List<Box> BoxList = bestPickFit.simulate(value,allProducts);
+                TpDrawProduct.setBoxes(BoxList);
+                TpDrawProduct.repaint();
+            } else if (selectedAlgorithm == "Best Fit") {
+                BestFit bestFit  = new BestFit();
+                List<Box> BoxList = bestFit.simulate(value,allProducts);
+                TpDrawProduct.setBoxes(BoxList);
+                TpDrawProduct.repaint();
+            }//Refreshed de GUI
         } else if (e.getSource() == JbBestand) {                        // knop om bestanden te uploaden
             final JFileChooser fc = new JFileChooser();                     // een filefinder voor de JSON product
             fc.setCurrentDirectory(new java.io.File("."));
@@ -208,7 +232,6 @@ public class GUI extends JFrame implements ActionListener {
         }else if (e.getSource() == JbOverzicht) {
             Product[] t = Arrays.stream(productList.toArray()).toArray(Product[]::new);
             List<Product> allProducts = Arrays.asList(t);
-            System.out.println("Knop doet het!");
             GuiOverzicht gO = new GuiOverzicht(value, allProducts);
         }else if (e.getSource() == JbReset) {
             productList.clear();

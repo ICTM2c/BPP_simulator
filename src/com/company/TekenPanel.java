@@ -34,14 +34,14 @@ public class TekenPanel extends JPanel {
             int PixelCounter = 0;                                           //counter om begin hoogte weer te geven
             int Yas = 500 + PixelCounter;                                   //yas pos berekening
             int pixelsPerSlot = 400 / Box.getCapacity();                    //pixels per 1 size
+
             int remainingSize = 400;
             int DoosCounter = i + 1;
             String doostekst = "doos" + DoosCounter;
             g.setColor(Color.BLACK);
             g.drawRect(Xas- 1, doosYas - 1, boxWidth + 1, boxHeight);
-
             g.drawString(doostekst, Xas + 10, StringHeight + 12);
-            if(_boxes.get(i).getCapacityLeftOver() == 0){
+            if(Box.getCapacity() == 0){
                 g.drawString("Vol", Xas + 10, StringHeight);
             }else {
                 g.drawString(_boxes.get(i).getCapacityLeftOver() + " over", Xas + 5, StringHeight);
@@ -53,7 +53,7 @@ public class TekenPanel extends JPanel {
                 g.fillRect(Xas,  (doosYas + remainingSize) - (size * pixelsPerSlot), boxWidth, size * pixelsPerSlot);        //teken rect
                 System.out.println(remainingSize);
                 remainingSize -= size * pixelsPerSlot;
-                PixelCounter = PixelCounter + size * pixelsPerSlot;                                    //geeft pixelcounter nieuwe waarde
+                PixelCounter = PixelCounter + size * pixelsPerSlot;
             }
         }
     }
@@ -65,4 +65,5 @@ public class TekenPanel extends JPanel {
             return;
         }
     }
+
 }
